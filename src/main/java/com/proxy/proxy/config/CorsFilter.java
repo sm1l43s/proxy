@@ -14,7 +14,8 @@ public class CorsFilter implements Filter {
     private String[] url = {
             "https://hailrase.github.io/greeting-oktell",
             "https://proxy-tcyj.onrender.com",
-            "http://134.17.25.94:55052"
+            "http://134.17.25.94:55052",
+            "https://hailrase.github.io"
     };
 
     @Override
