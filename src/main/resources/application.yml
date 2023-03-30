@@ -1,0 +1,3 @@
+#Settigns servers
+server:
+  port: 8080
