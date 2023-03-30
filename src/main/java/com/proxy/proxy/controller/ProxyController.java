@@ -27,8 +27,7 @@ public class ProxyController {
         String requestUrl = request.getRequestURI();
         int port = 55052;
         String server = "134.17.25.94";
-        String userInfo = "YURY:2195662Aa";
-        URI uri = new URI("http", userInfo, server, port, null, null, null);
+        URI uri = new URI("http", null, server, port, null, null, null);
         uri = UriComponentsBuilder.fromUri(uri)
                 .path(requestUrl)
                 .query(request.getQueryString())
