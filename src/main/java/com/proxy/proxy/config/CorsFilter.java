@@ -6,16 +6,23 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 @Component
 public class CorsFilter implements Filter {
+
+    private String[] url = {
+            "https://hailrase.github.io/greeting-oktell",
+            "https://proxy-tcyj.onrender.com",
+            "http://134.17.25.94:55052"
+    };
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
 
-        response.setHeader("Access-Control-Allow-Origin", "https://hailrase.github.io/greeting-oktell");
+        response.setHeader("Access-Control-Allow-Origin", Arrays.toString(url));
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         response.setHeader("Access-Control-Max-Age", "3600");
