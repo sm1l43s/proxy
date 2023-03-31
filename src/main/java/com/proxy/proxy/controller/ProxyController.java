@@ -1,5 +1,6 @@
 package com.proxy.proxy.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -20,13 +21,17 @@ import java.util.Enumeration;
 @RestController
 public class ProxyController {
 
+    @Value("${port_server}")
+    private int port;
+
+    @Value("${ip_address}")
+    private String server;
+
     @RequestMapping("/**")
     public ResponseEntity mirrorRest(@RequestBody(required = false) String body,
                                      HttpMethod method, HttpServletRequest request, HttpServletResponse response)
             throws URISyntaxException {
         String requestUrl = request.getRequestURI();
-        int port = 55052;
-        String server = "134.17.25.94";
         URI uri = new URI("http", null, server, port, null, null, null);
         uri = UriComponentsBuilder.fromUri(uri)
                 .path(requestUrl)

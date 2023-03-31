@@ -1,3 +1,5 @@
 #Settigns servers
 server:
   port: 8080
+ip_address: ${SERVER_URL}
+port_server: ${SERVER_PORT}
